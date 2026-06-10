@@ -198,7 +198,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-    android:id="@+id/btnContinue"
+    android:id="@+id/btnContinue1"
     android:layout_width="250dp"
     android:layout_height="50dp"
     android:layout_marginTop="24dp"
