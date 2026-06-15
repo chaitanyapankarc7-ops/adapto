@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Needed to query and launch installed apps -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <queries>
+        <!-- Required on Android 11+ to see all installed launchable apps -->
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyAdapto">
+
+        <!-- Splash / onboarding — app entry point when tapped from app drawer -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Welcome screen -->
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+
+        <!-- Profile selection -->
+        <activity
+            android:name=".MainActivity3"
+            android:exported="false" />
+
+        <!-- Accessibility Settings (font size, icon size, contrast) -->
+        <activity
+            android:name=".MainActivity4"
+            android:exported="false" />
+
+        <!-- Voice setup -->
+        <activity
+            android:name=".MainActivity5"
+            android:exported="false" />
+
+        <!--
+            HOME LAUNCHER
+            Android will offer "Adapto" when the user presses the HOME button.
+            launchMode="singleTask" + stateNotNeeded ensure it behaves like a real launcher.
+        -->
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>
